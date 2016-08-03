@@ -1,25 +1,25 @@
 FROM ubuntu
 MAINTAINER Adrian B
-RUN apt-get update
-RUN apt-get install software-properties-common
+RUN sudo apt-get update
+RUN sudo pt-get install software-properties-common
 
-RUN add-apt-repository ppa:fkrull/deadsnakes
+RUN sudo add-apt-repository ppa:fkrull/deadsnakes
 
-RUN apt-get update
+RUN sudo apt-get update
 
-RUN apt-get install python3.5
-RUN apt-get install python-pip python-dev build-essential
-RUN pip install --upgrade pip
-RUN pip install --upgrade virtualenv
-RUN pip install --upgrade six
+RUN sudo apt-get install python3.5
+RUN sudo apt-get install python-pip python-dev build-essential
+RUN sudo pip install --upgrade pip
+RUN sudo pip install --upgrade virtualenv
+RUN sudo pip install --upgrade six
 
 
-RUN mkdir -p /var/www/python
+RUN sudo mkdir -p /var/www/python
 
 WORKDIR /var/www/python
 
 COPY * .
 
-RUN python setup.py install
-RUN python tut.py
+RUN sudo ython setup.py install
+RUN sudo python tut.py
 
